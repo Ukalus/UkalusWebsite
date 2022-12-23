@@ -47,15 +47,15 @@
     </div>
 </form>
 <br>
-<div class="grid sm:grid-cols-3 lg:grid-cols-6 xl:grid-cols-3 gap-12">
+<div class="grid sm:grid-cols-3 lg:grid-cols-6 xl:grid-cols-5 gap-12">
     {#each articles as article}
-    <a class="flex" href="{article.articleId?.toString()}">       
-        <div class="bg-teal-100 p-6 rounded-xl min-w-full shadow-xl border-4 border-teal-50">
+    <a class="flex" href="articles/{article.articleId?.toString()}">       
+        <div class="bg-gray-100 p-6 rounded-xl min-w-full shadow-xl border border-gray-300">
             <img class="rounded-xl" src="./placeholder/profilepic.png" alt="">
             <br>
             <strong><h3 class="text-xl">{article.title}</h3></strong> 
             <p>by ukalus</p>
-            <hr class="my-4 h-px bg-teal-200 border-0 dark:bg-gray-700">
+            <hr class="my-4 h-px bg-gray-200 border-0 dark:bg-gray-700">
             <p>{article.description}</p>
         </div>
     </a>
