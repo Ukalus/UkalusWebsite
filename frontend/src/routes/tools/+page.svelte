@@ -1,1 +1,7 @@
-this is where tools will be
+<script>
+	import ToolList from "../../components/ToolList.svelte";
+
+
+</script>
+
+<ToolList></ToolList>
