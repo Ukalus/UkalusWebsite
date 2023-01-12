@@ -3,30 +3,27 @@
 Website to post visualized concepts to, like flowfields, vectormath, pathfinding algorithms and many more. Also used as a portfolio 
 
 # Structure:
-- Kubernetes cluster
+Multiple docker containers 
 - Sveltekit frontend
 - Postgraphile graphql intermediary server
 - Postgres SQL database
+- some form of autherization (OICD,basic Auth)
 
 # Dependencies:
 
-## Cluster and Container stuff:
-- Kubernetes
+## Container stuff:
 - Docker
-- Helm 
-
-
+- Docker-compose (container management)
+- VirtualBox (Testing Server) 
 
 ## Database and SQL:
 - Postgresql
 - postgraphile
 
-
-
 ## Frontend:
 
 - Sveltekit
-- Tailwind
+- Tailwind (css)
 
 ## 2D/3D graphics:
 

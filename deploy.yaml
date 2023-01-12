@@ -1,0 +1,39 @@
+version: '3.3'
+
+services:
+
+  postgres-db:
+    image: postgres-ukalus
+    restart: always
+    build:
+      context: ./postgres
+    volumes:
+      - postgres-db:/var/lib/postgresql/data
+    env_file:
+      - ./.env
+    networks:
+      - network
+    ports:
+      - 5432:5432
+
+  graphql:
+    container_name: postgraphile-ukalus
+    restart: always
+    image: postgraphile-ukalus
+    build:
+      context: ./postgraphile
+    env_file:
+      - ./.env
+    depends_on:
+        - postgres-db
+    networks:
+        - network
+    ports:
+        - 5433:5433
+    command: ["--enhance-graphiql","--connection", "${DATABASE_URL}", "--port", "5433", "--schema", "public", "--append-plugins", "postgraphile-plugin-connection-filter"]
+
+networks:
+  network:
+
+volumes:
+  postgres-db:
