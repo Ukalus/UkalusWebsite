@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@urql/svelte": "^3.0.3",
+    "graphql": "^16.6.0"
+  }
+}
