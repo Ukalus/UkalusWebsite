@@ -11,5 +11,7 @@ COPY . ./
 
 RUN npm run build
 
-FROM nginx:1.19-alpine
-COPY --from=ukalus-frontend /app/public /usr/share/nginx/html
+EXPOSE 3000
+CMD node ./build/index.js
+
+

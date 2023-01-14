@@ -40,6 +40,8 @@ services:
       context: ./frontend
     depends_on:
       - graphql
+    ports:
+      - 3000:3000
 
   
 networks:
