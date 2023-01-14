@@ -1,6 +1,6 @@
 <script lang="ts">
     import WebCanvas from "../../../components/WebCanvas.svelte";
-    export let data;
+    export let data: any;
 </script>
 
 <h1 class="text-7xl py-3 font-semibold">{data.articleTitle}</h1>

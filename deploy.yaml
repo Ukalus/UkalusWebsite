@@ -32,6 +32,16 @@ services:
         - 5433:5433
     command: ["--enhance-graphiql","--connection", "${DATABASE_URL}", "--port", "5433", "--schema", "public", "--append-plugins", "postgraphile-plugin-connection-filter"]
 
+  frontend:
+    container_name: frontend-ukalus
+    restart: always
+    image: ukalus-frontend
+    build:
+      context: ./frontend
+    depends_on:
+      - graphql
+
+  
 networks:
   network:
 

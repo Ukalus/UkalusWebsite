@@ -7,5 +7,3 @@ CREATE TABLE Articles (
     models varchar(255)
 );
 
-INSERT INTO Articles(title,description, code_ref,image,models)
-VALUES ("This","IS","A","TEST","LOL");

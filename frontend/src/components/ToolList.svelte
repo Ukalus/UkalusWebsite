@@ -1,5 +1,5 @@
 <script lang="ts">
-    let tools = [{
+    let tools: any = [{
         toolName: "Seamless Texture Editor",
         toolDescription: "create seamless textures easy"
     },
