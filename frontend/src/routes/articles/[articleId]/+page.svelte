@@ -1,5 +1,5 @@
 <script lang="ts">
-    import WebCanvas from "../../../components/WebCanvas.svelte";
+    import Canvas from "../../../components/Canvas.svelte";
     export let data: any;
 </script>
 
@@ -9,7 +9,7 @@
 
 
 <div class="flex">
-   <WebCanvas></WebCanvas>
+   <Canvas></Canvas>
     <div class="px-6">
         <label for="default-range" class="block mb-2 text-sm font-medium text-gray-900">Default range</label>
         <input id="default-range" type="range" value="50" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer ">

@@ -1,38 +1,54 @@
-# create-svelte
+# Documentation
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+This is the documentation to my Website
 
-## Creating a project
+# Articles
 
-If you're seeing this, you've probably already done this step. Congrats!
+### Every article has 3 components
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+    - Title 
+    - Description
+    - Content
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+### There are 3 different types of content,
 
-## Developing
+    - Text based
+    - Graphics based
+    - Graphics + text based
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+<br>
 
-```bash
-npm run dev
+### Text based articles
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+Strictly text based articles are written and displayed as a markdown file
 
-## Building
+<hr>
 
-To create a production version of your app:
+### Graphics based articles
 
-```bash
-npm run build
-```
+Strictly graphic based articles are displayed inside of a Three.js Canvas
 
-You can preview the production build with `npm run preview`.
+<hr>
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+### Text and graphic based articles
+
+this type of article is a combination of the other two,
+with a three.js canvas and a text that is explaining what is happening 
+
+
+# Database implementation
+
+There will be **2 Tables** inside of the database for storing articles 
+
+**First Table:** Articles
+    
+    articleId: int
+    title: string
+    description: string
+    content: foreign_key 
+
+**Second Table:** Content
+
+    contentId: int
+    text: markdown
+    canvas: 
