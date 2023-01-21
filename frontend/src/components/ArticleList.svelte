@@ -1,7 +1,5 @@
 <script lang="ts">
-    let articles = [
-  
-    ]
+    export let articles = [];
     
 </script>
 <br>

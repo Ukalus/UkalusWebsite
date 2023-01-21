@@ -38,17 +38,24 @@ with a three.js canvas and a text that is explaining what is happening
 
 # Database implementation
 
-There will be **2 Tables** inside of the database for storing articles 
+There will be a article table inside of the database for storing articles and a content type enum for the 3 cases
 
 **First Table:** Articles
     
-    articleId: int
-    title: string
-    description: string
-    content: foreign_key 
+    CREATE TABLE ukalus_public.Articles (
+        content_id SERIAL PRIMARY KEY,
+        content_type ukalus_public.content_type, 
+        title varchar(255),
+        description varchar(255),
+        text_id varchar(255),
+        code_id varchar(255)
+    );
 
-**Second Table:** Content
+**Content type enum**
 
-    contentId: int
-    text: markdown
-    canvas: 
+    CREATE TYPE ukalus_public.content_type AS ENUM (
+        'TEXT',
+        'GRAPHIC',
+        'TEXT_GRAPHIC'
+    );
+

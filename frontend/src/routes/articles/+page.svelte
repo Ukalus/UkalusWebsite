@@ -1,36 +1,39 @@
 <script lang="ts">
     import ArticleList from "../../components/ArticleList.svelte";
-    import { createClient, queryStore, setContextClient, getContextClient } from "@urql/svelte";
+    import { createClient, queryStore, setContextClient, getContextClient, gql } from "@urql/svelte";
 
     const client = createClient({
         url: "http://0.0.0.0:5433/graphql"
     })
     setContextClient(client);
 
-    $: articlesQuery = queryStore({
+    const articlesQuery = queryStore({
         client: getContextClient(),
         query: gql`
         query MyQuery {
-            allArticles(condition: {codeRef: "aksdjla"}) {
+            allArticles {
                 edges {
                 node {
+                    contentType
                     title
                     description
-                    codeRef
-                    image
-                    models
+                    textId
+                    codeId
                 }
                 }
             }
-            }
-        `
-    })
+        }`,
+    });
 
-    
+$: articles = $articlesQuery.data;
 
-    console.log(articlesQuery);
 </script>
 
+{#if $articlesQuery.fetching}
+<p>Loading...</p>
+{:else if $articlesQuery.error}
+<p>Oh no... {$articlesQuery.error.message}</p>
+{:else}
+<ArticleList articles={[...articles]}/>
 
-<ArticleList>
-</ArticleList>
+{/if}
