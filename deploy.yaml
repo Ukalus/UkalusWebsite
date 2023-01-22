@@ -11,10 +11,8 @@ services:
       - postgres-db:/var/lib/postgresql/data
     env_file:
       - ./.env
-    networks:
-      - network
     ports:
-      - 5432:5432
+      - "5432:5432"
 
   graphql:
     container_name: postgraphile-ukalus
@@ -26,14 +24,12 @@ services:
       - ./.env
     depends_on:
         - postgres-db
-    networks:
-        - network
     ports:
-        - 5433:5433
-    command: ["--enhance-graphiql","--connection", "${DATABASE_URL}", "--port", "5433", "--schema", "ukalus_public", "--append-plugins", "postgraphile-plugin-connection-filter"]
+        - "5433:5433"
+    command: ["--enhance-graphiql","--connection", "${DATABASE_URL}", "--port", "5433", "--schema", "ukalus_public", "--append-plugins", "postgraphile-plugin-connection-filter","-o","--cors"]
 
   frontend:
-    container_name: frontend-ukalus
+    container_name: frontend
     restart: always
     image: ukalus-frontend
     build:
@@ -41,11 +37,17 @@ services:
     depends_on:
       - graphql
     ports:
-      - "443:3000"
+      - "3000:3000"
 
-  
-networks:
-  network:
+  nginx:
+    container_name: nginx
+    restart: always
+    image: nginx
+    build:
+      context:
+        ./nginx
+    ports:
+      - "80:80"
 
 volumes:
   postgres-db:
