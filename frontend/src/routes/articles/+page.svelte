@@ -3,7 +3,14 @@
     import { createClient, queryStore, setContextClient, getContextClient, gql } from "@urql/svelte";
 
     const client = createClient({
-        url: "http://0.0.0.0:5433/graphql"
+        url: "http://0.0.0.0:5433/graphql",
+        fetchOptions:{
+            headers: {
+                "Access-Control-Allow-Origin": "*"
+            }
+        }
+        
+        
     })
     setContextClient(client);
 
@@ -34,6 +41,6 @@ $: articles = $articlesQuery.data;
 {:else if $articlesQuery.error}
 <p>Oh no... {$articlesQuery.error.message}</p>
 {:else}
-<ArticleList articles={[...articles]}/>
+<ArticleList articles={articles}/>
 
 {/if}

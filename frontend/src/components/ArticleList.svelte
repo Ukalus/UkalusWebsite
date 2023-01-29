@@ -1,5 +1,6 @@
 <script lang="ts">
-    export let articles = [];
+    export let articles;
+
     
 </script>
 <br>
@@ -17,15 +18,15 @@
 </form>
 <br>
 <div class="grid sm:grid-cols-3 lg:grid-cols-6 xl:grid-cols-5 gap-12">
-    {#each articles as article}
-    <a class="flex" href="articles/{article.articleId?.toString()}">       
+    {#each articles.allArticles.edges as article}
+    <a class="flex" href="articles/{article.node.contentId?.toString()}">       
         <div class="bg-gray-100 p-6 rounded-xl min-w-full shadow-xl border border-gray-300">
             <img class="rounded-xl" src="./placeholder/profilepic.png" alt="">
             <br>
-            <strong><h3 class="text-xl">{article.title}</h3></strong> 
+            <strong><h3 class="text-xl">{article.node.title}</h3></strong> 
             <p>by ukalus</p>
             <hr class="my-4 h-px bg-gray-200 border-0">
-            <p>{article.description}</p>
+            <p>{article.node.description}</p>
         </div>
     </a>
     {/each}
