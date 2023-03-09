@@ -1,4 +1,5 @@
 <script lang="ts">
+  
     export let articles;
 
     
@@ -24,7 +25,7 @@
             <img class="rounded-xl" src="./placeholder/profilepic.png" alt="">
             <br>
             <strong><h3 class="text-xl">{article.name}</h3></strong> 
-            <p>by ukalus</p>
+            <p>by Ukalus</p>
             <hr class="my-4 h-px bg-gray-200 border-0">
             <p>{article.name}</p>
         </div>

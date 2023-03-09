@@ -3,11 +3,11 @@
 import ArticleList from "../../components/ArticleList.svelte";
 import {createClient, queryStore, gql} from "@urql/svelte"
 
-   const client = createClient({
+    const client = createClient({
   url: 'https://api.github.com/graphql',
   fetchOptions: () => {
     return {
-      headers: { authorization: 'Bearer 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' },
+      headers: { authorization: 'Bearer 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' },
     };
   },
 });
