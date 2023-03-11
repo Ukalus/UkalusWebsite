@@ -7,7 +7,7 @@ import {createClient, queryStore, gql} from "@urql/svelte"
   url: 'https://api.github.com/graphql',
   fetchOptions: () => {
     return {
-      headers: { authorization: 'Bearer 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' },
+      headers: { authorization: 'Bearer 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' },
     };
   },
 });

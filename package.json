@@ -1,6 +1,8 @@
 {
   "dependencies": {
+    "@types/three": "^0.149.0",
     "@urql/svelte": "^3.0.3",
-    "graphql": "^16.6.0"
+    "graphql": "^16.6.0",
+    "three": "^0.150.1"
   }
 }

@@ -1,13 +1,13 @@
 <script lang="ts">
+    import Three from "../../../components/Three.svelte";
     import { marked } from "marked"; 
-    import {createClient, queryStore, gql} from "@urql/svelte"
-
+    import {createClient, queryStore, gql} from "@urql/svelte";
     export let data;
     const client = createClient({
   url: 'https://api.github.com/graphql',
   fetchOptions: () => {
     return {
-      headers: { authorization: 'Bearer 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' },
+      headers: { authorization: 'Bearer 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' },
     };
   },
 });
@@ -42,21 +42,26 @@ $: folderPath = data.articleFolderName.params.articleName
     })
 
     $: articleObject = $articleQuery.data?.repository.object.entries
+    console.log(articleObject)
   </script>
 
   {#if $articleQuery.fetching}
   <p>Loading</p>
   {:else}
     {#each articleObject as entries}
-    {entries.name}
     <br>
     {#if entries.name == "article.md"}
-    {@html marked.parse(entries.object.text)}
+    {@html marked.parse(entries.object.text.replace(/\n/g, "\n "))}
+    {:else}
+    {entries.object.text}
+    <Three threeScript={entries.object.text}></Three>
     {/if}
     <br>
     <br>
     {/each}
   {/if}
+
+
 
   
  
