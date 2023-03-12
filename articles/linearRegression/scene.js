@@ -21,10 +21,12 @@ const resize = () => {
   camera.updateProjectionMatrix();
 };
 
-export const createScene = (el) => {
+const createScene = (el) => {
   renderer = new THREE.WebGLRenderer({ antialias: true, canvas: el });
   resize();
   animate();
 }
 
 window.addEventListener('resize', resize);
+
+return createScene
