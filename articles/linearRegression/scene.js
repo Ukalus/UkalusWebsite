@@ -1,6 +1,6 @@
 
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(75, (window.innerWidth / window.innerHeight) / 2, 0.1, 1000);
 const geometry = new THREE.BoxGeometry();
 const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
 const cube = new THREE.Mesh(geometry, material);
@@ -16,8 +16,8 @@ const animate = () => {
 };
 
 const resize = () => {
-  renderer.setSize(window.innerWidth, window.innerHeight)
-  camera.aspect = window.innerWidth / window.innerHeight;
+  renderer.setSize(window.innerWidth / 2, window.innerHeight / 2)
+  camera.aspect = (window.innerWidth / window.innerHeight) / 2;
   camera.updateProjectionMatrix();
 };
 
