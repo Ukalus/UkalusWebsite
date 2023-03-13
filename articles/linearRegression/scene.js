@@ -21,9 +21,9 @@ const resize = () => {
   camera.updateProjectionMatrix();
 };
 
-const createScene = (el) => {
+const createScene = (el,width,height) => {
   renderer = new THREE.WebGLRenderer({ antialias: true, canvas: el });
-  resize();
+  resize(width,height);
   animate();
 }
 
